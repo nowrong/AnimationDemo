@@ -1,4 +1,4 @@
-package com.example.liucun.animationdemo;
+package com.example.liucun.animationdemo.animation;
 
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.example.liucun.animationdemo.R;
 
 /**
  * Created by LiuCun on 2017/11/1.<br>

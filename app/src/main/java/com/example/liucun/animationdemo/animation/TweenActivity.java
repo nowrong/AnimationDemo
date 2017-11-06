@@ -1,4 +1,4 @@
-package com.example.liucun.animationdemo;
+package com.example.liucun.animationdemo.animation;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,6 +13,8 @@ import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.liucun.animationdemo.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
