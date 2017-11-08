@@ -28,7 +28,6 @@ public class TouchTestActivity extends BaseActivity {
         button.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-
                 Log.d(TAG, "onTouch execute, action " + event.getAction());
                 return false;
             }
