@@ -1,21 +1,21 @@
-package com.example.liucun.animationdemo.animation;
+package com.example.liucun.animationdemo.animation_test;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.liucun.animationdemo.R;
-import com.example.liucun.animationdemo.animation.fragment.BasePhysicsFragment;
-import com.example.liucun.animationdemo.animation.fragment.ChainFragment;
-import com.example.liucun.animationdemo.animation.fragment.TranslationFragment;
+import com.example.liucun.animationdemo.abase.BaseActivity;
+import com.example.liucun.animationdemo.animation_test.fragment.BasePhysicsFragment;
+import com.example.liucun.animationdemo.animation_test.fragment.ChainFragment;
+import com.example.liucun.animationdemo.animation_test.fragment.TranslationFragment;
 
 /**
  * Created by LiuCun on 2017/11/6.<br>
  * Describe
  */
 
-public class PhysicsBasedAnimationActivity extends AppCompatActivity {
+public class PhysicsBasedAnimationActivity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

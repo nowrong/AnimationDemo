@@ -4,16 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.os.Looper;
 import android.view.View;
 
 import com.example.liucun.animationdemo.R;
-import com.example.liucun.animationdemo.animation.FrameActivity;
-import com.example.liucun.animationdemo.animation.PhysicsBasedAnimationActivity;
-import com.example.liucun.animationdemo.animation.PropertyActivity;
-import com.example.liucun.animationdemo.animation.TweenActivity;
+import com.example.liucun.animationdemo.animation_test.FrameActivity;
+import com.example.liucun.animationdemo.animation_test.PhysicsBasedAnimationActivity;
+import com.example.liucun.animationdemo.animation_test.PropertyActivity;
+import com.example.liucun.animationdemo.animation_test.TweenActivity;
+import com.example.liucun.animationdemo.fragment_test.FragmentTestActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
 
     @Override
@@ -44,9 +45,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, PhysicsBasedAnimationActivity.class));
             }
         });
+        findViewById(R.id.bt_fragment).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, FragmentTestActivity.class));
+            }
+        });
 
-
+        Looper.prepare();
     }
+
+
+
+
 
     public static boolean isApkInDebug(Context context) {
         try {

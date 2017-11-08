@@ -18,16 +18,22 @@
         </activity>
 
         <activity
-            android:name=".animation.FrameActivity"
+            android:name=".animation_test.FrameActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".animation.TweenActivity"
+            android:name=".animation_test.TweenActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".animation.PropertyActivity"
+            android:name=".animation_test.PropertyActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".animation.PhysicsBasedAnimationActivity"
+            android:name=".animation_test.PhysicsBasedAnimationActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".fragment_test.FragmentTestActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".touch_event_test.TouchTestActivity"
             android:theme="@style/AppTheme" />
     </application>
 

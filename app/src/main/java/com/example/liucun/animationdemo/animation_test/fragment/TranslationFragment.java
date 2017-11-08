@@ -1,8 +1,7 @@
-package com.example.liucun.animationdemo.animation.fragment;
+package com.example.liucun.animationdemo.animation_test.fragment;
 
 import android.os.Bundle;
 import android.support.animation.SpringAnimation;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
@@ -11,13 +10,14 @@ import android.view.ViewGroup;
 import android.widget.SeekBar;
 
 import com.example.liucun.animationdemo.R;
+import com.example.liucun.animationdemo.abase.BaseFragment;
 
 /**
  * Created by LiuCun on 2017/11/6.<br>
  * Describe
  */
 
-public class TranslationFragment extends Fragment {
+public class TranslationFragment extends BaseFragment {
     private View root;
     // XY坐标
     private float downX, downY;

@@ -1,16 +1,15 @@
-package com.example.liucun.animationdemo.animation;
+package com.example.liucun.animationdemo.animation_test;
 
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.liucun.animationdemo.R;
+import com.example.liucun.animationdemo.abase.BaseActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -18,7 +17,7 @@ import butterknife.OnClick;
  * Describe
  */
 
-public class PropertyActivity extends AppCompatActivity {
+public class PropertyActivity extends BaseActivity {
 
     @BindView(R.id.bt_alpha)
     Button bt_alpha;
@@ -37,7 +36,6 @@ public class PropertyActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_property);
-        ButterKnife.bind(this);
     }
 
     @OnClick(R.id.bt_alpha)

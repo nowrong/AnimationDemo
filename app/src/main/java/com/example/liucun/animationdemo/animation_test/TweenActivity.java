@@ -1,8 +1,7 @@
-package com.example.liucun.animationdemo.animation;
+package com.example.liucun.animationdemo.animation_test;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
@@ -15,9 +14,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.liucun.animationdemo.R;
+import com.example.liucun.animationdemo.abase.BaseActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -25,7 +24,7 @@ import butterknife.OnClick;
  * Describe
  */
 
-public class TweenActivity extends AppCompatActivity {
+public class TweenActivity extends BaseActivity {
 
     @BindView(R.id.bt_alpha)
     Button bt_alpha;
@@ -46,7 +45,6 @@ public class TweenActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tween);
-        ButterKnife.bind(this);
     }
 
 //    以下为Andorid所提供的所有插值器：

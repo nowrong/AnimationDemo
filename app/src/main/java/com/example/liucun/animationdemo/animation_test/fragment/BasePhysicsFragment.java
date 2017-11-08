@@ -1,4 +1,4 @@
-package com.example.liucun.animationdemo.animation.fragment;
+package com.example.liucun.animationdemo.animation_test.fragment;
 
 import android.os.Bundle;
 import android.support.animation.DynamicAnimation;
@@ -6,7 +6,6 @@ import android.support.animation.FlingAnimation;
 import android.support.animation.FloatPropertyCompat;
 import android.support.animation.SpringAnimation;
 import android.support.animation.SpringForce;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,13 +13,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.liucun.animationdemo.R;
+import com.example.liucun.animationdemo.abase.BaseFragment;
 
 /**
  * Created by LiuCun on 2017/11/6.<br>
  * Describe
  */
 
-public class BasePhysicsFragment extends Fragment {
+public class BasePhysicsFragment extends BaseFragment {
 
     private View root;
     private Button btnFling;

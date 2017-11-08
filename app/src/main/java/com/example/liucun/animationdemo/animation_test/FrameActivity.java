@@ -1,22 +1,22 @@
-package com.example.liucun.animationdemo.animation;
+package com.example.liucun.animationdemo.animation_test;
 
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.liucun.animationdemo.R;
+import com.example.liucun.animationdemo.abase.BaseActivity;
 
 /**
  * Created by LiuCun on 2017/11/1.<br>
  * Describe
  */
 
-public class FrameActivity extends AppCompatActivity {
+public class FrameActivity extends BaseActivity {
 
     private ImageView imageView;
 
