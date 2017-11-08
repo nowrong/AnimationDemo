@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.liucun.animationdemo">
+    package="com.android.pkqup.androidnote">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".abase.MainActivity">
+        <activity android:name="com.android.pkqup.androidnote.abase.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,22 +18,22 @@
         </activity>
 
         <activity
-            android:name=".animation_test.FrameActivity"
+            android:name="com.android.pkqup.androidnote.animation_test.FrameActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".animation_test.TweenActivity"
+            android:name="com.android.pkqup.androidnote.animation_test.TweenActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".animation_test.PropertyActivity"
+            android:name="com.android.pkqup.androidnote.animation_test.PropertyActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".animation_test.PhysicsBasedAnimationActivity"
+            android:name="com.android.pkqup.androidnote.animation_test.PhysicsBasedAnimationActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".fragment_test.FragmentTestActivity"
+            android:name="com.android.pkqup.androidnote.fragment_test.FragmentTestActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".touch_event_test.TouchTestActivity"
+            android:name="com.android.pkqup.androidnote.touch_event_test.TouchTestActivity"
             android:theme="@style/AppTheme" />
     </application>
 

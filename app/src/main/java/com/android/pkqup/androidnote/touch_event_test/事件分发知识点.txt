@@ -1,0 +1,32 @@
+
+一、View的触摸事件
+    ex:以一个按钮为例，同时注册 OnTouchListener 和 OnClickListener
+         button.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        Log.d(TAG, "onTouch execute, action " + event.getAction());
+                        return false;//返回false表示不消费该事件
+                    }
+                });
+
+         button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d(TAG, "onClick execute");
+                    }
+                });
+
+        点击按钮，打印结果为
+        11-08 00:51:20.053 3324-3324/com.example.liucun.animationdemo D/TouchTestActivity: onTouch execute, action 0
+        11-08 00:51:20.179 3324-3324/com.example.liucun.animationdemo D/TouchTestActivity: onTouch execute, action 1
+        11-08 00:51:20.180 3324-3324/com.example.liucun.animationdemo D/TouchTestActivity: onClick execute
+        结论;onTouch方法优先于onClick，并且onTouch执行了两次
+
+
+
+
+
+
+
+
+
