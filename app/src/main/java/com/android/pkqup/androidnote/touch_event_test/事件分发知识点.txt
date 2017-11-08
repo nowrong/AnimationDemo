@@ -90,10 +90,27 @@
         dispatchTouchEvent —> onTouch()回调判断是否消费事件 —> onTouchEvent —> onClick()回调
 
 
-三、ViewGroup事件分发源码分析
-    三个重要函数：调用方式见图片
+三、ViewGroup事件分发分析
+    三个重要函数：调用顺序见图片
     1、事件分发：public boolean dispatchTouchEvent(MotionEvent ev)
     2、事件拦截：public boolean onInterceptTouchEvent(MotionEvent ev)
+       拦截事件，用来决定事件是否传向子View。返回true时，拦截后交给自己的onTouchEvent处理。 返回false时，拦截后交给子View来处理
     3、事件响应：public boolean onTouchEvent(MotionEvent ev)
+       返回true时，内部处理所有的事件，换句话说，后续事件将继续传递给该view的onTouchEvent()处理
+       返回false时，事件会向上传递，由onTouchEvent来接受，如果最上面View中的onTouchEvent也返回false的话，那么事件就会消失
+
+四、总结
+    1、如果ViewGroup找到了能够处理该事件的View，则直接交给子View处理，自己的onTouchEvent不会被触发；　
+    2、可以通过复写onInterceptTouchEvent(ev)方法，拦截子View的事件（即return true），把事件交给自己处理，则会执行自己对应的onTouchEvent方法。
+    3、子View可以通过调用getParent().requestDisallowInterceptTouchEvent(true); 阻止ViewGroup对其MOVE或者UP事件进行拦截；　　
+    4、ViewGroup默认不拦截任何事件。　
+
+五、补充
+    MotionEvent的四种状态：
+        MotionEvent.ACTION_DOWN　：手指按下屏幕的瞬间（一切事件的开始）
+        MotionEvent.ACTION_MOVE　：手指在屏幕上移动
+        MotionEvent.ACTION_UP　：手指离开屏幕瞬间
+        MotionEvent.ACTION_CANCEL 　：取消手势，一般由程序产生，不会由用户产生
+
 
 
