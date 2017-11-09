@@ -37,17 +37,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="物理动画" />
-
             <Button
                 android:id="@+id/bt_fragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="fragment" />
             <Button
+                android:id="@+id/bt_handler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="handler" />
+            <Button
                 android:id="@+id/bt_touch_dispatch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="事件分发" />
+            <Button
+                android:id="@+id/bt_view_draw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="view绘制" />
         </LinearLayout>
 
 

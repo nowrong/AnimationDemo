@@ -1,6 +1,7 @@
 package com.android.pkqup.androidnote.touch_event_test;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -25,7 +26,6 @@ public class MyTextView extends AppCompatTextView {
         super(context, attrs, defStyleAttr);
     }
 
-
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         Log.d("MyTextView", "dispatchTouchEvent");
@@ -36,5 +36,23 @@ public class MyTextView extends AppCompatTextView {
     public boolean onTouchEvent(MotionEvent event) {
         Log.d("MyTextView", "onTouchEvent");
         return super.onTouchEvent(event);
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        Log.d("MyTextView", "onMeasure");
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        Log.d("MyTextView", "onLayout");
+        super.onLayout(changed, left, top, right, bottom);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        Log.d("MyTextView", "onDraw");
+        super.onDraw(canvas);
     }
 }
