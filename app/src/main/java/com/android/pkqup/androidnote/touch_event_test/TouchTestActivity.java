@@ -24,7 +24,6 @@ public class TouchTestActivity extends BaseActivity {
         setContentView(R.layout.activity_touch_dispatch);
 
         button = findViewById(R.id.bt_test);
-
         button.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
