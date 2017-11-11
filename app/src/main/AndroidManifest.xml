@@ -34,7 +34,13 @@
             android:name="com.android.pkqup.androidnote.fragment_test.FragmentTestActivity"
             android:theme="@style/AppTheme" />
         <activity
+            android:name="com.android.pkqup.androidnote.handler_test.HandlerThreadTestActivity"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name="com.android.pkqup.androidnote.touch_event_test.TouchTestActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.android.pkqup.androidnote.view_draw_test.ViewDrawTestActivity"
             android:theme="@style/AppTheme" />
     </application>
 

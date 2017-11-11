@@ -13,7 +13,9 @@ import com.android.pkqup.androidnote.animation_test.PhysicsBasedAnimationActivit
 import com.android.pkqup.androidnote.animation_test.PropertyActivity;
 import com.android.pkqup.androidnote.animation_test.TweenActivity;
 import com.android.pkqup.androidnote.fragment_test.FragmentTestActivity;
+import com.android.pkqup.androidnote.handler_test.HandlerThreadTestActivity;
 import com.android.pkqup.androidnote.touch_event_test.TouchTestActivity;
+import com.android.pkqup.androidnote.view_draw_test.ViewDrawTestActivity;
 
 public class MainActivity extends BaseActivity {
 
@@ -52,6 +54,12 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(MainActivity.this, FragmentTestActivity.class));
             }
         });
+        findViewById(R.id.bt_handler).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, HandlerThreadTestActivity.class));
+            }
+        });
         findViewById(R.id.bt_touch_dispatch).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,6 +72,12 @@ public class MainActivity extends BaseActivity {
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, TouchTestActivity.class));
 
+            }
+        });
+        findViewById(R.id.bt_view_draw).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ViewDrawTestActivity.class));
             }
         });
 

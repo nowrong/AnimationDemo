@@ -1,6 +1,7 @@
 package com.android.pkqup.androidnote.touch_event_test;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -24,7 +25,6 @@ public class MyLinearLayout extends LinearLayout {
         super(context, attrs, defStyleAttr, 0);
     }
 
-
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         Log.d("MyLinearLayout", "dispatchTouchEvent");
@@ -41,5 +41,23 @@ public class MyLinearLayout extends LinearLayout {
     public boolean onTouchEvent(MotionEvent event) {
         Log.d("MyLinearLayout", "onTouchEvent");
         return super.onTouchEvent(event);
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        Log.d("MyLinearLayout", "onMeasure");
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        Log.d("MyLinearLayout", "onLayout");
+        super.onLayout(changed, l, t, r, b);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        Log.d("MyLinearLayout", "onDraw");
+        super.onDraw(canvas);
     }
 }
