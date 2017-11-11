@@ -1,5 +1,6 @@
 package com.android.pkqup.androidnote.abase;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -55,11 +56,18 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, TouchTestActivity.class));
+
+            }
+        });
+ findViewById(R.id.bt_activity).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, TouchTestActivity.class));
+
             }
         });
 
     }
-
 
 
     public static boolean isApkInDebug(Context context) {
