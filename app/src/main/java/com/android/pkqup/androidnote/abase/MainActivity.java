@@ -1,6 +1,5 @@
 package com.android.pkqup.androidnote.abase;
 
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -8,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.android.pkqup.androidnote.R;
+import com.android.pkqup.androidnote.activity_test.ActivityTestActivity;
 import com.android.pkqup.androidnote.animation_test.FrameActivity;
 import com.android.pkqup.androidnote.animation_test.PhysicsBasedAnimationActivity;
 import com.android.pkqup.androidnote.animation_test.PropertyActivity;
@@ -64,20 +64,18 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, TouchTestActivity.class));
-
-            }
-        });
- findViewById(R.id.bt_activity).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, TouchTestActivity.class));
-
             }
         });
         findViewById(R.id.bt_view_draw).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, ViewDrawTestActivity.class));
+            }
+        });
+        findViewById(R.id.bt_activity).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ActivityTestActivity.class));
             }
         });
 
