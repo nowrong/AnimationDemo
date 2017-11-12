@@ -3,6 +3,16 @@
     package="com.android.pkqup.androidnote">
 
 
+    <!--自定义权限-->
+    <permission
+        android:name="com.sample.test.permission.sticky.receiver"
+        android:protectionLevel="normal" />
+    <!--使用自定义权限-->
+    <uses-permission android:name="com.sample.test.permission.sticky.receiver" />
+    <!--使用粘性广播发送权限-->
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -46,6 +56,18 @@
         <activity
             android:name="com.android.pkqup.androidnote.activity_test.ActivityTestActivity"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.android.pkqup.androidnote.broadcast_receiver_test.BroadcastReceiverActivity"
+            android:theme="@style/AppTheme" />
+
+        <receiver android:name=".broadcast_receiver_test.StickyBroadcastReceiver">
+            <!--android:permission="com.sample.test.permission.sticky.receiver"-->
+            <!--android:permission 其他应用使用时，需要检测的权限-->
+            <intent-filter>
+                <action android:name="com.sample.test.sticky.broadcast.receiver" />
+            </intent-filter>
+        </receiver>
     </application>
+
 
 </manifest>

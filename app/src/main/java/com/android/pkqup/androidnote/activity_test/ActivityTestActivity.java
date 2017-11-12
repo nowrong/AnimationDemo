@@ -22,6 +22,7 @@ public class ActivityTestActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_activity);
 
+
         Log.e("AndroidNote", "taskId" + getTaskId());
         findViewById(R.id.bt_call).setOnClickListener(new View.OnClickListener() {
             @Override

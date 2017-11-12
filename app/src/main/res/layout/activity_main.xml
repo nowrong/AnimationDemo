@@ -62,6 +62,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="activity" />
+            <Button
+                android:id="@+id/bt_broadcast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="广播" />
         </LinearLayout>
 
 
