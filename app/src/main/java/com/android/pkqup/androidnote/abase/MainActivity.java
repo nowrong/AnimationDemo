@@ -15,6 +15,7 @@ import com.android.pkqup.androidnote.animation_test.TweenActivity;
 import com.android.pkqup.androidnote.broadcast_receiver_test.BroadcastReceiverActivity;
 import com.android.pkqup.androidnote.fragment_test.FragmentTestActivity;
 import com.android.pkqup.androidnote.handler_test.HandlerThreadTestActivity;
+import com.android.pkqup.androidnote.service_test.ServiceTestOneActivity;
 import com.android.pkqup.androidnote.touch_event_test.TouchTestActivity;
 import com.android.pkqup.androidnote.view_draw_test.ViewDrawTestActivity;
 
@@ -85,7 +86,12 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(MainActivity.this, BroadcastReceiverActivity.class));
             }
         });
-
+        findViewById(R.id.bt_service).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ServiceTestOneActivity.class));
+            }
+        });
     }
 
 

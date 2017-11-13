@@ -29,7 +29,6 @@
         </activity>
 
         <activity
-
             android:name="com.android.pkqup.androidnote.animation_test.FrameActivity"
             android:theme="@style/AppTheme" />
         <activity
@@ -67,6 +66,18 @@
                 <action android:name="com.sample.test.sticky.broadcast.receiver" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name="com.android.pkqup.androidnote.service_test.ServiceTestOneActivity"
+            android:theme="@style/AppTheme" />
+        <service
+            android:name=".service_test.MyTestService"
+            android:exported="false" />
+        <service
+            android:name=".service_test.MyBindService"
+            android:exported="false" />
+        <service
+            android:name=".service_test.MyIntentService" />
     </application>
 
 
