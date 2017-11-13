@@ -16,9 +16,9 @@ import com.android.pkqup.androidnote.abase.MainActivity;
  * Describe
  */
 
-public class MyBindService extends Service {
+public class MyService extends Service {
 
-    public static final String TAG = "MyBindService";
+    public static final String TAG = "MyService";
     public boolean isServiceBind = false;
 
     public MyBinder myBind = new MyBinder();
@@ -26,7 +26,7 @@ public class MyBindService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.e("MyBindService", "MyBindService thread id is " + Thread.currentThread().getId());
+        Log.e(TAG, "MyService thread id is " + Thread.currentThread().getId());
         Log.e(TAG, "onCreate() executed");
         createForegroundService();
     }
@@ -81,8 +81,8 @@ public class MyBindService extends Service {
 
     public class MyBinder extends Binder {
 
-        public MyBindService getService() {
-            return MyBindService.this;
+        public MyService getService() {
+            return MyService.this;
         }
 
         public void doWork() {

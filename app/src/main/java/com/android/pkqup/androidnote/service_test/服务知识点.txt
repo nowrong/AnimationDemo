@@ -149,15 +149,19 @@
        因此便有了IntentService——这个封装了HandlerThread和Handler的特殊Service。
 
     2、特性：
-    2.1、IntentService中只有“一个”默认的HandlerThread线程用来处理异步任务;
-    2.2、默认直接实现了onBind()方法，直接返回null，并定义了抽象方法onHandlerIntent()，用户自定义子类时，需要实现此方法；
-    2.3、onHandlerIntent()主要就是用来处于相应的“长期”任务的，并且已经自动在新的线程中，用户无语自定义新线程；
-    2.4、当“长期”任务执行完毕后（也就是onHandlerIntent()执行完毕后），此IntentService将自动结束，无需人为调用方法使其结束；
-    2.5、IntentService处理任务时，也是按照队列的方式一个个去处理，而非真正意义上的多线程并发方式。
-    2.6、onHandleIntent(Intent)发生在子线程，不能直接更新UI，需要先把结果发到Activity中
-    2.7、提交的任务顺序执行，如果一个任务A正在IntentService中执行，此时发送另一个异步任务B到IntentService中，那么必须等到任务A执行完之后任务B才会开始执行
+       2.1、IntentService中只有“一个”默认的HandlerThread线程用来处理异步任务;
+       2.2、默认直接实现了onBind()方法，直接返回null，并定义了抽象方法onHandlerIntent()，用户自定义子类时，需要实现此方法；
+       2.3、onHandlerIntent()主要就是用来处于相应的“长期”任务的，并且已经自动在新的线程中，用户无语自定义新线程；
+       2.4、当“长期”任务执行完毕后（也就是onHandlerIntent()执行完毕后），此IntentService将自动结束，无需人为调用方法使其结束；
+       2.5、IntentService处理任务时，也是按照队列的方式一个个去处理，而非真正意义上的多线程并发方式。
+       2.6、onHandleIntent(Intent)发生在子线程，不能直接更新UI，需要先把结果发到Activity中
+       2.7、提交的任务顺序执行，如果一个任务A正在IntentService中执行，此时发送另一个异步任务B到IntentService中，那么必须等到任务A执行完之后任务B才会开始执行
 
-    3、使用
+    3、使用：
+       见MyIntentService
+
+
+九、远程服务，即AIDL实现进程间通信
 
 
 

@@ -22,12 +22,13 @@ import com.android.pkqup.androidnote.abase.BaseActivity;
 
 public class ServiceTestOneActivity extends BaseActivity {
 
-    private MyBindService myBindService;
-    private MyBindService.MyBinder myBinder;
-    private boolean isServiceBind = false;
+    private TextView textViewOne;
+    private TextView textViewTwo;
+
+    private MyService myService;
+    private MyService.MyBinder myBinder;
 
     private MyReceiver myReceiver;
-
     private ServiceConnection connection = new ServiceConnection() {
 
         public static final String TAG = "ServiceConnection";
@@ -36,20 +37,16 @@ public class ServiceTestOneActivity extends BaseActivity {
         public void onServiceDisconnected(ComponentName name) {
             // 服务断开连接
             Log.e(TAG, "onServiceDisconnected() executed");
-            isServiceBind = false;
         }
 
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             // 服务连接成功，可得到IBinder对象,也可以通过IBinder得到Service实例
             Log.e(TAG, "onServiceConnected() executed");
-            isServiceBind = true;
-            myBinder = (MyBindService.MyBinder) service;
-            myBindService = myBinder.getService();
+            myBinder = (MyService.MyBinder) service;
+            myService = myBinder.getService();
         }
     };
-    private TextView textViewOne;
-    private TextView textViewTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,12 +60,10 @@ public class ServiceTestOneActivity extends BaseActivity {
                 "ServiceTestOneActivity thread id is " + Thread.currentThread().getId());
         initBroadcast();
 
-
-
         findViewById(R.id.bt_start).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent startIntent = new Intent(ServiceTestOneActivity.this, MyBindService.class);
+                Intent startIntent = new Intent(ServiceTestOneActivity.this, MyService.class);
                 startService(startIntent);
             }
         });
@@ -76,7 +71,7 @@ public class ServiceTestOneActivity extends BaseActivity {
         findViewById(R.id.bt_stop).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent stopIntent = new Intent(ServiceTestOneActivity.this, MyBindService.class);
+                Intent stopIntent = new Intent(ServiceTestOneActivity.this, MyService.class);
                 stopService(stopIntent);
             }
         });
@@ -84,9 +79,9 @@ public class ServiceTestOneActivity extends BaseActivity {
         findViewById(R.id.bt_bind).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent bindIntent = new Intent(ServiceTestOneActivity.this, MyBindService.class);
                 // 这里传入BIND_AUTO_CREATE表示在Activity和Service建立关联后自动创建Service，
                 // 这会使得MyService中的onCreate()方法得到执行，但onStartCommand()方法不会执行。
+                Intent bindIntent = new Intent(ServiceTestOneActivity.this, MyService.class);
                 bindService(bindIntent, connection, Context.BIND_AUTO_CREATE);
             }
         });
@@ -101,8 +96,8 @@ public class ServiceTestOneActivity extends BaseActivity {
         findViewById(R.id.bt_do_work).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (null != myBindService && null != myBinder) {
-                    myBindService.doSomeThing();
+                if (null != myService && null != myBinder) {
+                    myService.doSomeThing();
                     myBinder.doWork();
                 }
             }
@@ -135,8 +130,8 @@ public class ServiceTestOneActivity extends BaseActivity {
     }
 
     private void checkServiceIsBind() {
-        if (null != myBindService && myBindService.isServiceBind) {
-            myBindService = null;
+        if (null != myService && myService.isServiceBind) {
+            myService = null;
             myBinder = null;
             unbindService(connection);
         }
