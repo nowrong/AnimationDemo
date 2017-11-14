@@ -78,6 +78,10 @@
             android:exported="false" />
         <service
             android:name=".service_test.MyIntentService" />
+
+        <activity
+            android:name="com.android.pkqup.androidnote.content_provider_test.ContentProviderActivity"
+            android:theme="@style/AppTheme" />
     </application>
 
 
