@@ -14,7 +14,6 @@ import android.util.Log;
 
 public class RemoteService extends Service {
 
-
     public static final String TAG = "RemoteService";
 
     @Override
@@ -46,7 +45,6 @@ public class RemoteService extends Service {
         @Override
         public void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat,
                 double aDouble, String aString) throws RemoteException {
-
         }
 
         // 相加
