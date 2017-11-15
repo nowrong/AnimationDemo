@@ -8,6 +8,8 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.Process;
+import android.os.RemoteException;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -21,7 +23,7 @@ import com.android.pkqup.androidnote.abase.BaseActivity;
  */
 
 public class ServiceTestOneActivity extends BaseActivity {
-
+    public static final String TAG = "ServiceTestOneActivity";
     private TextView textViewOne;
     private TextView textViewTwo;
 
@@ -56,8 +58,11 @@ public class ServiceTestOneActivity extends BaseActivity {
         textViewOne = findViewById(R.id.tv_one);
         textViewTwo = findViewById(R.id.tv_two);
 
-        Log.e("ServiceTestOneActivity",
-                "ServiceTestOneActivity thread id is " + Thread.currentThread().getId());
+        Log.e(TAG, "ServiceTestOneActivity thread id is " + Thread.currentThread().getId());
+        Log.e(TAG, "ServiceTestOneActivity task id is " + getTaskId());
+        Log.e(TAG, "ServiceTestOneActivity process id is " + Process.myPid());
+
+
         initBroadcast();
 
         findViewById(R.id.bt_start).setOnClickListener(new View.OnClickListener() {
@@ -100,6 +105,14 @@ public class ServiceTestOneActivity extends BaseActivity {
                     myService.doSomeThing();
                     myBinder.doWork();
                 }
+            }
+        });
+
+        findViewById(R.id.bt_remote).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ServiceTestOneActivity.this, RemoteService.class);
+                startService(intent);
             }
         });
 
@@ -160,4 +173,32 @@ public class ServiceTestOneActivity extends BaseActivity {
         }
     }
 
+
+
+    private ServiceConnection serviceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            IMyAIDLService myAIDLService = IMyAIDLService.Stub.asInterface(service);
+            try {
+                int result = myAIDLService.plus(50, 50);
+                String upperStr = myAIDLService.toUpperCase("comes from ClientTest");
+                Log.d("TAG", "result is " + result);
+                Log.d("TAG", "upperStr is " + upperStr);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+
+        }
+    };
+
+    private void bindService() {
+        Intent intent = new Intent("com.android.pkqup.androidnote.remote.service");
+        //Android5.0之后服务必须显性声明，所以在调用其他应用的远程服务时必须加上包名，
+        intent.setPackage("com.android.pkqup.androidnote");
+        bindService(intent, serviceConnection, BIND_AUTO_CREATE);
+    }
 }

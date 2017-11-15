@@ -13,6 +13,7 @@ import com.android.pkqup.androidnote.animation_test.PhysicsBasedAnimationActivit
 import com.android.pkqup.androidnote.animation_test.PropertyActivity;
 import com.android.pkqup.androidnote.animation_test.TweenActivity;
 import com.android.pkqup.androidnote.broadcast_receiver_test.BroadcastReceiverActivity;
+import com.android.pkqup.androidnote.content_provider_test.ContentProviderActivity;
 import com.android.pkqup.androidnote.fragment_test.FragmentTestActivity;
 import com.android.pkqup.androidnote.handler_test.HandlerThreadTestActivity;
 import com.android.pkqup.androidnote.service_test.ServiceTestOneActivity;
@@ -90,6 +91,12 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, ServiceTestOneActivity.class));
+            }
+        });
+        findViewById(R.id.bt_content_provider).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ContentProviderActivity.class));
             }
         });
     }

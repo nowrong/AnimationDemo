@@ -35,6 +35,12 @@
         android:text="do work" />
 
     <Button
+        android:id="@+id/bt_remote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="remote service" />
+
+    <Button
         android:id="@+id/bt_intent_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

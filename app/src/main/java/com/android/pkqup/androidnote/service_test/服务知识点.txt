@@ -162,7 +162,10 @@
 
 
 九、远程服务，即AIDL实现进程间通信
-
+    Android Interface Definition Language，也就是Android接口定义语言。是的，首先我们知道的第一点就是：AIDL是一种语言。
+    实现步骤：
+    1、创建AIDL文件，会自动生成aidl文件。
+    2、在远程service中创建IMyAIDLService.Stub实例，作为IBinder对象在onBind()方法中返回。
 
 
 
