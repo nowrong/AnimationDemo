@@ -16,6 +16,7 @@ import com.android.pkqup.androidnote.broadcast_receiver_test.BroadcastReceiverAc
 import com.android.pkqup.androidnote.content_provider_test.ContentProviderActivity;
 import com.android.pkqup.androidnote.fragment_test.FragmentTestActivity;
 import com.android.pkqup.androidnote.handler_test.HandlerThreadTestActivity;
+import com.android.pkqup.androidnote.permission_test.PermissionActivity;
 import com.android.pkqup.androidnote.service_test.ServiceTestOneActivity;
 import com.android.pkqup.androidnote.touch_event_test.TouchTestActivity;
 import com.android.pkqup.androidnote.view_draw_test.ViewDrawTestActivity;
@@ -97,6 +98,12 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, ContentProviderActivity.class));
+            }
+        });
+        findViewById(R.id.bt_permission).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, PermissionActivity.class));
             }
         });
     }

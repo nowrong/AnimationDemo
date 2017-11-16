@@ -37,41 +37,49 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="物理动画" />
+
             <Button
                 android:id="@+id/bt_fragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="fragment" />
+
             <Button
                 android:id="@+id/bt_handler"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="handler" />
+
             <Button
                 android:id="@+id/bt_touch_dispatch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="事件分发" />
+
             <Button
                 android:id="@+id/bt_view_draw"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="view绘制" />
+
             <Button
                 android:id="@+id/bt_activity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="activity" />
+
             <Button
                 android:id="@+id/bt_broadcast"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="广播" />
+
             <Button
                 android:id="@+id/bt_service"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="service" />
+
             <Button
                 android:id="@+id/bt_content_provider"
                 android:layout_width="wrap_content"
@@ -87,6 +95,18 @@
         android:layout_height="wrap_content"
         android:layout_weight="1">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/bt_permission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="permission" />
+
+        </LinearLayout>
 
     </ScrollView>
 
