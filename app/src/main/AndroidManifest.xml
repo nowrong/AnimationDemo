@@ -217,6 +217,9 @@
         <activity
             android:name="com.android.pkqup.androidnote.permission_test.PermissionActivity"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.android.pkqup.androidnote.annotation_test.AnnotationActivity"
+            android:theme="@style/AppTheme" />
     </application>
 
 
