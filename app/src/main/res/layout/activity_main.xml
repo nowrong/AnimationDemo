@@ -111,7 +111,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="annotation" />
-
+            <Button
+                android:id="@+id/bt_generics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="generics" />
         </LinearLayout>
 
     </ScrollView>

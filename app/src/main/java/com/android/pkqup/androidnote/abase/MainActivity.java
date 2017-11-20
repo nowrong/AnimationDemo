@@ -16,6 +16,7 @@ import com.android.pkqup.androidnote.annotation_test.AnnotationActivity;
 import com.android.pkqup.androidnote.broadcast_receiver_test.BroadcastReceiverActivity;
 import com.android.pkqup.androidnote.content_provider_test.ContentProviderActivity;
 import com.android.pkqup.androidnote.fragment_test.FragmentTestActivity;
+import com.android.pkqup.androidnote.generics_test.GenericsActivity;
 import com.android.pkqup.androidnote.handler_test.HandlerThreadTestActivity;
 import com.android.pkqup.androidnote.permission_test.PermissionActivity;
 import com.android.pkqup.androidnote.service_test.ServiceTestOneActivity;
@@ -111,6 +112,12 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, AnnotationActivity.class));
+            }
+        });
+        findViewById(R.id.bt_generics).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, GenericsActivity.class));
             }
         });
     }
