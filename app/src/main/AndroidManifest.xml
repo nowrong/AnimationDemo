@@ -223,6 +223,9 @@
         <activity
             android:name="com.android.pkqup.androidnote.generics_test.GenericsActivity"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.android.pkqup.androidnote.status_bar_test.StatusBarActivity"
+            android:theme="@style/AppTheme" />
     </application>
 
 

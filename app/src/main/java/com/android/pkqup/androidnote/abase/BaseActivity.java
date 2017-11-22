@@ -3,6 +3,9 @@ package com.android.pkqup.androidnote.abase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.android.pkqup.androidnote.R;
+import com.jaeger.library.StatusBarUtil;
+
 import butterknife.ButterKnife;
 
 /**
@@ -18,6 +21,11 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         TAG = getClass().getSimpleName();
+        setStatusBar();
+    }
+
+    public void setStatusBar() {
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary));
     }
 
 

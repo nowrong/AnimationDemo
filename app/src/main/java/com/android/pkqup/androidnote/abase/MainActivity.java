@@ -20,6 +20,7 @@ import com.android.pkqup.androidnote.generics_test.GenericsActivity;
 import com.android.pkqup.androidnote.handler_test.HandlerThreadTestActivity;
 import com.android.pkqup.androidnote.permission_test.PermissionActivity;
 import com.android.pkqup.androidnote.service_test.ServiceTestOneActivity;
+import com.android.pkqup.androidnote.status_bar_test.StatusBarActivity;
 import com.android.pkqup.androidnote.touch_event_test.TouchTestActivity;
 import com.android.pkqup.androidnote.view_draw_test.ViewDrawTestActivity;
 
@@ -118,6 +119,12 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, GenericsActivity.class));
+            }
+        });
+        findViewById(R.id.bt_status_bar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, StatusBarActivity.class));
             }
         });
     }
