@@ -1,6 +1,7 @@
 package com.android.pkqup.androidnote.abase;
 
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import com.android.pkqup.androidnote.R;
@@ -21,11 +22,11 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         TAG = getClass().getSimpleName();
-        setStatusBar();
     }
 
     public void setStatusBar() {
-        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary));
+        StatusBarUtil.setColor(this, ContextCompat.getColor(this, R.color.colorAccent),
+                StatusBarUtil.DEFAULT_STATUS_BAR_ALPHA);
     }
 
 
@@ -34,5 +35,6 @@ public class BaseActivity extends AppCompatActivity {
         super.setContentView(layoutResID);
         //注入要在setContentView()方法之后调用
         ButterKnife.bind(this);
+        setStatusBar();
     }
 }

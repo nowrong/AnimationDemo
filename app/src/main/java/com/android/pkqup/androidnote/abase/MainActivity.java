@@ -19,6 +19,7 @@ import com.android.pkqup.androidnote.fragment_test.FragmentTestActivity;
 import com.android.pkqup.androidnote.generics_test.GenericsActivity;
 import com.android.pkqup.androidnote.handler_test.HandlerThreadTestActivity;
 import com.android.pkqup.androidnote.permission_test.PermissionActivity;
+import com.android.pkqup.androidnote.screen_scale_test.ScreenActivity;
 import com.android.pkqup.androidnote.service_test.ServiceTestOneActivity;
 import com.android.pkqup.androidnote.status_bar_test.StatusBarActivity;
 import com.android.pkqup.androidnote.touch_event_test.TouchTestActivity;
@@ -127,6 +128,12 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(MainActivity.this, StatusBarActivity.class));
             }
         });
+        findViewById(R.id.bt_screen).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ScreenActivity.class));
+            }
+        });
     }
 
 
@@ -138,5 +145,7 @@ public class MainActivity extends BaseActivity {
             return false;
         }
     }
+
+
 
 }

@@ -83,13 +83,6 @@ public class StatusBarActivity extends BaseActivity {
                             ContextCompat.getDrawable(StatusBarActivity.this, R.mipmap.bg_monkey));
                     StatusBarUtil.setTranslucentForImageView(StatusBarActivity.this, alpha,
                             need_view);
-
-                    contentLayout.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            contentLayout.invalidate();
-                        }
-                    });
                 } else {
                     contentLayout.setBackground(null);
                     StatusBarUtil.setColor(StatusBarActivity.this, color, alpha);
@@ -124,9 +117,6 @@ public class StatusBarActivity extends BaseActivity {
 
     @Override
     public void setStatusBar() {
-        super.setStatusBar();
-        StatusBarUtil.setColor(this, ContextCompat.getColor(this, R.color.colorAccent),
-                StatusBarUtil.DEFAULT_STATUS_BAR_ALPHA);
 
     }
 }

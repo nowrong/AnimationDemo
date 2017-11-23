@@ -226,6 +226,9 @@
         <activity
             android:name="com.android.pkqup.androidnote.status_bar_test.StatusBarActivity"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.android.pkqup.androidnote.screen_scale_test.ScreenActivity"
+            android:theme="@style/AppTheme" />
     </application>
 
 
