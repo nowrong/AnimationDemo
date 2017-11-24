@@ -31,11 +31,26 @@ dependencies {
     compile 'com.android.support:support-dynamic-animation:26.1.0'
     compile 'com.android.support:design:26.1.0'
 
+    //dex分包（解决方法数超过65535编译失败问题）
+    compile 'com.android.support:multidex:1.0.2'
 
+    //日志打印
+    compile 'com.github.zhaokaiqiang.klog:library:1.6.0'
+
+    //依赖注入
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
+    //状态栏变色
+    compile 'com.jaeger.statusbarutil:library:1.4.0'
+
+    //事件总线
     compile 'org.greenrobot:eventbus:3.1.1'
 
-    compile 'com.jaeger.statusbarutil:library:1.4.0'
+    //网络请求
+    compile 'com.squareup.okhttp3:okhttp:3.9.1'
+    //okHttp日志拦截器
+    compile 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    //okHttp封装框架
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
 }
