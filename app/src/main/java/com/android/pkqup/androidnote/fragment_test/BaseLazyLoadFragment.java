@@ -15,20 +15,28 @@ import com.android.pkqup.androidnote.R;
 
 public class BaseLazyLoadFragment extends Fragment {
 
-    private boolean mIsInited;//数据是否加载完成
-    private boolean mIsPrepared;//UI是否准备完成
+    private boolean mIsInit = false;//数据是否加载完成
+    private boolean mIsPrepared = false;//UI是否准备完成
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         View mRootView = inflater.inflate(R.layout.fragment_first, container, false);
         mIsPrepared = true;
         lazyLoad();
         return mRootView;
     }
 
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            lazyLoad();
+        }
+    }
+
     public void lazyLoad() {
-        if (getUserVisibleHint() && mIsPrepared && !mIsInited) {
+        if (getUserVisibleHint() && mIsPrepared && !mIsInit) {
             // 异步初始化，在初始化后显示正常UI
             loadData();
         }
@@ -39,18 +47,10 @@ public class BaseLazyLoadFragment extends Fragment {
             public void run() {
                 // 1. 加载数据
                 // 2. 更新UI
-                // 3. mIsInited = true
-                mIsInited = true;
+                // 3. mIsInit = true
+                mIsInit = true;
             }
         }.start();
-    }
-
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        if (isVisibleToUser) {
-            lazyLoad();
-        }
     }
 
 }
