@@ -1,8 +1,6 @@
 package com.android.pkqup.androidnote.abase;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
 import android.view.View;
 
@@ -18,7 +16,9 @@ import com.android.pkqup.androidnote.content_provider_test.ContentProviderActivi
 import com.android.pkqup.androidnote.fragment_test.FragmentTestActivity;
 import com.android.pkqup.androidnote.generics_test.GenericsActivity;
 import com.android.pkqup.androidnote.handler_test.HandlerThreadTestActivity;
+import com.android.pkqup.androidnote.okhttp_test.OkHttpActivity;
 import com.android.pkqup.androidnote.permission_test.PermissionActivity;
+import com.android.pkqup.androidnote.retrofit_test.RetrofitActivity;
 import com.android.pkqup.androidnote.screen_scale_test.ScreenActivity;
 import com.android.pkqup.androidnote.service_test.ServiceTestOneActivity;
 import com.android.pkqup.androidnote.status_bar_test.StatusBarActivity;
@@ -134,17 +134,22 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(MainActivity.this, ScreenActivity.class));
             }
         });
+        findViewById(R.id.bt_okhttp).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, OkHttpActivity.class));
+            }
+        });
+        findViewById(R.id.bt_retrofit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, RetrofitActivity.class));
+            }
+        });
     }
 
 
-    public static boolean isApkInDebug(Context context) {
-        try {
-            ApplicationInfo info = context.getApplicationInfo();
-            return (info.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
-        } catch (Exception e) {
-            return false;
-        }
-    }
+
 
 
 
