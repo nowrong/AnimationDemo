@@ -37,7 +37,7 @@ public class MyApplication extends MultiDexApplication {
         return isDebug;
     }
 
-    public static Context getAppContext() {
+    public static Context getContext() {
         return appContext;
     }
 }

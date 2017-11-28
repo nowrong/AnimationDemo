@@ -12,10 +12,10 @@ import com.android.pkqup.androidnote.abase.BaseActivity;
 
 public class RetrofitActivity extends BaseActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrofit);
-
     }
 }
