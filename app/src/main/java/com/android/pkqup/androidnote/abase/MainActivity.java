@@ -18,7 +18,7 @@ import com.android.pkqup.androidnote.generics_test.GenericsActivity;
 import com.android.pkqup.androidnote.handler_test.HandlerThreadTestActivity;
 import com.android.pkqup.androidnote.okhttp_test.OkHttpActivity;
 import com.android.pkqup.androidnote.permission_test.PermissionActivity;
-import com.android.pkqup.androidnote.retrofit_test.RetrofitActivity;
+import com.android.pkqup.androidnote.rxjava_retrofit_okhttp_test.RetrofitActivity;
 import com.android.pkqup.androidnote.screen_scale_test.ScreenActivity;
 import com.android.pkqup.androidnote.service_test.ServiceTestOneActivity;
 import com.android.pkqup.androidnote.status_bar_test.StatusBarActivity;

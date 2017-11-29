@@ -234,7 +234,7 @@
             android:name="com.android.pkqup.androidnote.okhttp_test.OkHttpActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.android.pkqup.androidnote.retrofit_test.RetrofitActivity"
+            android:name="com.android.pkqup.androidnote.rxjava_retrofit_okhttp_test.RetrofitActivity"
             android:theme="@style/AppTheme" />
     </application>
 

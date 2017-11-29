@@ -1,4 +1,4 @@
-package com.android.pkqup.androidnote.retrofit_test;
+package com.android.pkqup.androidnote.rxjava_retrofit_okhttp_test;
 
 import android.support.annotation.NonNull;
 
@@ -62,14 +62,6 @@ public class RetrofitUtils {
         }
     };
 
-    public class HeaderInterceptor implements Interceptor {
-
-        @Override
-        public Response intercept(Chain chain) throws IOException {
-            return null;
-
-        }
-    }
 
     private RetrofitUtils() {
         // OkHttp缓存设置
