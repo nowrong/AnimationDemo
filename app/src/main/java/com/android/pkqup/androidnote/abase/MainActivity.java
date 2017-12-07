@@ -15,10 +15,12 @@ import com.android.pkqup.androidnote.broadcast_receiver_test.BroadcastReceiverAc
 import com.android.pkqup.androidnote.content_provider_test.ContentProviderActivity;
 import com.android.pkqup.androidnote.fragment_test.FragmentTestActivity;
 import com.android.pkqup.androidnote.generics_test.GenericsActivity;
+import com.android.pkqup.androidnote.glide_test.GlideActivity;
 import com.android.pkqup.androidnote.handler_test.HandlerThreadTestActivity;
 import com.android.pkqup.androidnote.okhttp_test.OkHttpActivity;
 import com.android.pkqup.androidnote.permission_test.PermissionActivity;
 import com.android.pkqup.androidnote.rxjava_retrofit_okhttp_test.RetrofitActivity;
+import com.android.pkqup.androidnote.rxjava_test.RxJavaActivity;
 import com.android.pkqup.androidnote.screen_scale_test.ScreenActivity;
 import com.android.pkqup.androidnote.service_test.ServiceTestOneActivity;
 import com.android.pkqup.androidnote.status_bar_test.StatusBarActivity;
@@ -146,11 +148,19 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(MainActivity.this, RetrofitActivity.class));
             }
         });
+        findViewById(R.id.bt_glide).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, GlideActivity.class));
+            }
+        });
+        findViewById(R.id.bt_rxjava).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, RxJavaActivity.class));
+            }
+        });
     }
-
-
-
-
 
 
 }

@@ -236,6 +236,12 @@
         <activity
             android:name="com.android.pkqup.androidnote.rxjava_retrofit_okhttp_test.RetrofitActivity"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.android.pkqup.androidnote.glide_test.GlideActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.android.pkqup.androidnote.rxjava_test.RxJavaActivity"
+            android:theme="@style/AppTheme" />
     </application>
 
 

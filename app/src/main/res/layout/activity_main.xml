@@ -142,6 +142,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="retrofit" />
+            <Button
+                android:id="@+id/bt_glide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="glide" />
+            <Button
+                android:id="@+id/bt_rxjava"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="rxjava" />
         </LinearLayout>
 
     </ScrollView>

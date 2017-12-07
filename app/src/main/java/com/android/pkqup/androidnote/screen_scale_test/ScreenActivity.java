@@ -19,6 +19,9 @@ public class ScreenActivity extends BaseActivity {
         setContentView(R.layout.activity_screen);
 
         int dimension = (int) getResources().getDimension(R.dimen.dp_180);
+        int widthPixels = getResources().getDisplayMetrics().widthPixels;
+
+        Log.e("-----widthPixels--", widthPixels + "");
         Log.e("-----ScreenActivity----", dimension + "");
     }
 }
