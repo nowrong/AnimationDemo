@@ -25,7 +25,7 @@ import retrofit2.http.QueryMap;
 
 public interface FirstService {
 
-    @GET("/user")
+    @GET("user")
     Call<User> getUser();
 
 
