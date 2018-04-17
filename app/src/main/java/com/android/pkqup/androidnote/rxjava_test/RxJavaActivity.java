@@ -284,9 +284,10 @@ public class RxJavaActivity extends BaseActivity {
     /*
      * 在RxJava中, 已经内置了很多线程选项供我们选择, 例如有
      * 
-     * Schedulers.io() 代表io操作的线程, 通常用于网络,读写文件等io密集型的操作 Schedulers.computation()
-     * 代表CPU计算密集型的操作,例如需要大量计算的操作 Schedulers.newThread() 代表一个常规的新线程 AndroidSchedulers.mainThread()
-     * 代表Android的主线程
+     * Schedulers.io() 代表io操作的线程, 通常用于网络,读写文件等io密集型的操作
+     * Schedulers.computation()代表CPU计算密集型的操作,例如需要大量计算的操作
+     * Schedulers.newThread() 代表一个常规的新线程
+     * AndroidSchedulers.mainThread()代表Android的主线程
      * 
      */
 

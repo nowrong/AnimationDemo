@@ -26,17 +26,22 @@ import com.android.pkqup.androidnote.service_test.ServiceTestOneActivity;
 import com.android.pkqup.androidnote.status_bar_test.StatusBarActivity;
 import com.android.pkqup.androidnote.touch_event_test.TouchTestActivity;
 import com.android.pkqup.androidnote.view_draw_test.ViewDrawTestActivity;
+import java.util.List;
 
 public class MainActivity extends BaseActivity {
 
+    private List list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         findViewById(R.id.bt_frame).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                list.size();
                 startActivity(new Intent(MainActivity.this, FrameActivity.class));
             }
         });
