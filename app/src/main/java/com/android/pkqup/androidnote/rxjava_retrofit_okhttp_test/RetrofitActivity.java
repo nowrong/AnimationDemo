@@ -2,20 +2,26 @@ package com.android.pkqup.androidnote.rxjava_retrofit_okhttp_test;
 
 import android.os.Bundle;
 import android.os.Environment;
+
 import com.android.pkqup.androidnote.R;
 import com.android.pkqup.androidnote.abase.BaseActivity;
 import com.socks.library.KLog;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by LiuCun on 2017/11/24.<br>
@@ -93,5 +99,22 @@ public class RetrofitActivity extends BaseActivity {
         photos.put("username", RequestBody.create(null, "abc"));
 
         Call<User> call = firstService.registerUser(photos, RequestBody.create(null, "123"));
+        try {
+            Response<User> execute = call.execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
     }
 }

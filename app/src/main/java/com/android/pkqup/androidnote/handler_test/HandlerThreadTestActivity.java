@@ -10,12 +10,38 @@ import android.view.View;
 import com.android.pkqup.androidnote.R;
 import com.android.pkqup.androidnote.abase.BaseActivity;
 
+import java.lang.ref.WeakReference;
+
 /**
  * Created by LiuCun on 2017/11/9.<br>
  * Describe
  */
 
 public class HandlerThreadTestActivity extends BaseActivity {
+
+
+           private static class MyHandler extends Handler {
+
+                WeakReference<HandlerThreadTestActivity> mActivity;
+
+                public MyHandler(HandlerThreadTestActivity activity) {
+                    mActivity = new WeakReference<>(activity);
+                }
+
+                @Override
+                public void handleMessage(Message msg) {
+                    HandlerThreadTestActivity activity = mActivity.get();
+                    if (null!=activity) {
+                    }
+                }
+            }
+
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+        }
+    };
 
     private HandlerThread handlerThread;// 子线程
     private Handler childHandler;// 与子线程关联的Handler
@@ -26,6 +52,7 @@ public class HandlerThreadTestActivity extends BaseActivity {
             return false;
         }
     };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +66,8 @@ public class HandlerThreadTestActivity extends BaseActivity {
             }
         });
         initHandlerThread();
+
+
     }
 
     private void initHandlerThread() {
@@ -52,5 +81,21 @@ public class HandlerThreadTestActivity extends BaseActivity {
         super.onDestroy();
         // 释放资源
         handlerThread.quit();
+    }
+
+    class LooperThread extends Thread {
+        public Handler mHandler;
+
+        public void run() {
+//            Looper.prepare();
+
+            mHandler = new Handler() {
+                public void handleMessage(Message msg) {
+                    // process incoming messages here
+                }
+            };
+
+//            Looper.loop();
+        }
     }
 }

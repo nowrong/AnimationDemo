@@ -35,6 +35,9 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //在冷启动后改为默认的样式
+        setTheme(R.style.AppTheme);
+
         setContentView(R.layout.activity_main);
 
 

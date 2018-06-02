@@ -157,6 +157,10 @@
        2.6、onHandleIntent(Intent)发生在子线程，不能直接更新UI，需要先把结果发到Activity中
        2.7、提交的任务顺序执行，如果一个任务A正在IntentService中执行，此时发送另一个异步任务B到IntentService中，那么必须等到任务A执行完之后任务B才会开始执行
 
+    3、使用IntentService的好处：
+       3.1、我们省去了在 Service 中手动开线程的麻烦，
+       3.2、当操作完成时，我们不用手动停止 Service。
+
     3、使用：
        见MyIntentService
 

@@ -13,4 +13,8 @@
 
     </style>
 
+    <style name="LaunchStyle" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/launch_style</item>
+    </style>
+
 </resources>

@@ -140,7 +140,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.android.pkqup.androidnote.abase.MainActivity">
+        <activity
+            android:name="com.android.pkqup.androidnote.abase.MainActivity"
+            android:theme="@style/LaunchStyle"><!--设置一个闪屏背景（一般是应用的logo图片），优化冷启动-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

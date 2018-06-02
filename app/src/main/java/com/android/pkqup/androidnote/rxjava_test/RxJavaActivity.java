@@ -1,12 +1,19 @@
 package com.android.pkqup.androidnote.rxjava_test;
 
 import android.os.Bundle;
-import butterknife.OnClick;
+
 import com.android.pkqup.androidnote.R;
 import com.android.pkqup.androidnote.abase.BaseActivity;
 import com.android.pkqup.androidnote.rxjava_retrofit_okhttp_test.Address;
 import com.android.pkqup.androidnote.rxjava_retrofit_okhttp_test.User;
 import com.socks.library.KLog;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
+
+import butterknife.OnClick;
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableEmitter;
@@ -23,10 +30,6 @@ import io.reactivex.functions.Function;
 import io.reactivex.functions.Function4;
 import io.reactivex.functions.Predicate;
 import io.reactivex.schedulers.Schedulers;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by LiuCun on 2017/12/1.<br>
@@ -63,7 +66,8 @@ public class RxJavaActivity extends BaseActivity {
                 e.onComplete();// 结束
                 e.onNext("3");
             }
-        }).subscribe(new Observer<String>() {
+        })
+                .subscribe(new Observer<String>() {
             // 订阅
             @Override
             public void onSubscribe(Disposable d) {
@@ -233,7 +237,7 @@ public class RxJavaActivity extends BaseActivity {
     // 7、repeat方式，创建一个Observable，该Observable的事件可以重复调用。
     private void createObservableSeven() {
         Observable.just(1, 2).repeat().subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<Integer>() {
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<Integer>() {
             @Override
             public void onSubscribe(Disposable d) {
             }
@@ -281,15 +285,15 @@ public class RxJavaActivity extends BaseActivity {
     }
 
     // 二、RxJava的线程调度
-    /*
-     * 在RxJava中, 已经内置了很多线程选项供我们选择, 例如有
-     * 
-     * Schedulers.io() 代表io操作的线程, 通常用于网络,读写文件等io密集型的操作
-     * Schedulers.computation()代表CPU计算密集型的操作,例如需要大量计算的操作
-     * Schedulers.newThread() 代表一个常规的新线程
-     * AndroidSchedulers.mainThread()代表Android的主线程
-     * 
-     */
+            /*
+             * 在RxJava中, 已经内置了很多线程选项供我们选择, 例如有
+             *
+             * Schedulers.io() 代表io操作的线程, 通常用于网络,读写文件等io密集型的操作
+             * Schedulers.computation()代表CPU计算密集型的操作,例如需要大量计算的操作
+             * Schedulers.newThread() 代表一个常规的新线程
+             * AndroidSchedulers.mainThread()代表Android的主线程
+             *
+             */
 
     // 三、RxJava操作符
     // 1、Map的作用就是对发送的每一个事件应用一个函数, 使得每一个事件都按照指定的函数去变化
@@ -331,7 +335,7 @@ public class RxJavaActivity extends BaseActivity {
             @Override
             public ObservableSource<String> apply(Integer integer) throws Exception {
                 return Observable.just(integer + "", integer * 10 + "", integer * 100 + "")
-                    .delay(10, TimeUnit.MILLISECONDS);
+                        .delay(10, TimeUnit.MILLISECONDS);
             }
         }).subscribe(new Consumer<String>() {
             @Override
@@ -355,7 +359,7 @@ public class RxJavaActivity extends BaseActivity {
             @Override
             public ObservableSource<String> apply(Integer integer) throws Exception {
                 return Observable.just(integer + "", integer * 10 + "", integer * 100 + "")
-                    .delay(10, TimeUnit.MILLISECONDS);
+                        .delay(10, TimeUnit.MILLISECONDS);
             }
         }).subscribe(new Consumer<String>() {
             @Override
@@ -373,58 +377,58 @@ public class RxJavaActivity extends BaseActivity {
     @OnClick(R.id.bt_doOnNext)
     void bt_doOnNext() {
         Observable
-            .create(new ObservableOnSubscribe<User>() {
-                @Override
-                public void subscribe(ObservableEmitter<User> emitter) throws Exception {
-                    User user = new User();
-                    user.setAge(1);
-                    firstTime = System.currentTimeMillis();
-                    Thread.sleep(3000);
-                    KLog.e("-user emitter--");
-                    emitter.onNext(user);
-                }
-            })
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .doOnNext(new Consumer<User>() {
-                @Override
-                public void accept(User user) throws Exception {
-                    user.setAge(2);
-                    secondTime = System.currentTimeMillis();
-                    KLog.e("-user doOnNext--");
-                    KLog.e(secondTime - firstTime);
-                }
-            })
-            .observeOn(Schedulers.io())
-            .flatMap(new Function<User, ObservableSource<Address>>() {
-                @Override
-                public ObservableSource<Address> apply(final User user) throws Exception {
-                    return Observable.create(new ObservableOnSubscribe<Address>() {
-                        @Override
-                        public void subscribe(ObservableEmitter<Address> e) throws Exception {
-                            Address address = new Address();
-                            address.setName("address");
-                            e.onNext(address);
-                            thirdTime = System.currentTimeMillis();
-                            KLog.e("-address emitter--");
-                            KLog.e(thirdTime - secondTime);
-                        }
-                    });
-                }
-            })
-            .observeOn(AndroidSchedulers.mainThread())
-            .doOnNext(new Consumer<Address>() {
-                @Override
-                public void accept(Address address) throws Exception {
+                .create(new ObservableOnSubscribe<User>() {
+                    @Override
+                    public void subscribe(ObservableEmitter<User> emitter) throws Exception {
+                        User user = new User();
+                        user.setAge(1);
+                        firstTime = System.currentTimeMillis();
+                        Thread.sleep(3000);
+                        KLog.e("-user emitter--");
+                        emitter.onNext(user);
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnNext(new Consumer<User>() {
+                    @Override
+                    public void accept(User user) throws Exception {
+                        user.setAge(2);
+                        secondTime = System.currentTimeMillis();
+                        KLog.e("-user doOnNext--");
+                        KLog.e(secondTime - firstTime);
+                    }
+                })
+                .observeOn(Schedulers.io())
+                .flatMap(new Function<User, ObservableSource<Address>>() {
+                    @Override
+                    public ObservableSource<Address> apply(final User user) throws Exception {
+                        return Observable.create(new ObservableOnSubscribe<Address>() {
+                            @Override
+                            public void subscribe(ObservableEmitter<Address> e) throws Exception {
+                                Address address = new Address();
+                                address.setName("address");
+                                e.onNext(address);
+                                thirdTime = System.currentTimeMillis();
+                                KLog.e("-address emitter--");
+                                KLog.e(thirdTime - secondTime);
+                            }
+                        });
+                    }
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnNext(new Consumer<Address>() {
+                    @Override
+                    public void accept(Address address) throws Exception {
 
-                }
-            })
-            .subscribe(new Consumer<Address>() {
-                @Override
-                public void accept(Address address) throws Exception {
-                    KLog.e(address.getName());
-                }
-            });
+                    }
+                })
+                .subscribe(new Consumer<Address>() {
+                    @Override
+                    public void accept(Address address) throws Exception {
+                        KLog.e(address.getName());
+                    }
+                });
     }
 
     // 5、filter()操作符根据test()方法中，根据自己想过滤的数据加入相应的逻辑判断，
@@ -483,68 +487,67 @@ public class RxJavaActivity extends BaseActivity {
     @OnClick(R.id.bt_zip)
     void bt_zip() {
         Observable<Integer> integerObservable = Observable
-            .create(new ObservableOnSubscribe<Integer>() {
-                @Override
-                public void subscribe(ObservableEmitter<Integer> e) throws Exception {
+                .create(new ObservableOnSubscribe<Integer>() {
+                    @Override
+                    public void subscribe(ObservableEmitter<Integer> e) throws Exception {
 //                    Thread.sleep(1000);
 //                    e.onNext(1);
 //                    Thread.sleep(1000);
 //                    e.onNext(2);
 //                    e.onNext(3);
-                    int a = 1;
-                    while (true) {
-                        a++;
-                        e.onNext(a);
+                        int a = 1;
+                        while (true) {
+                            a++;
+                            e.onNext(a);
+                        }
                     }
-                }
-            }).subscribeOn(Schedulers.io());
+                }).subscribeOn(Schedulers.io());
 
         Observable<Integer> integerObservable2 = Observable
-            .create(new ObservableOnSubscribe<Integer>() {
-                @Override
-                public void subscribe(ObservableEmitter<Integer> e) throws Exception {
-                    e.onNext(10);
-                    e.onNext(20);
-                    e.onNext(30);
-                }
-            }).subscribeOn(Schedulers.io());
+                .create(new ObservableOnSubscribe<Integer>() {
+                    @Override
+                    public void subscribe(ObservableEmitter<Integer> e) throws Exception {
+                        e.onNext(10);
+                        e.onNext(20);
+                        e.onNext(30);
+                    }
+                }).subscribeOn(Schedulers.io());
 
         Observable<String> stringObservable = Observable
-            .create(new ObservableOnSubscribe<String>() {
-                @Override
-                public void subscribe(ObservableEmitter<String> e) throws Exception {
-                    Thread.sleep(2000);
-                    e.onNext("a");
-                    Thread.sleep(2000);
-                    e.onNext("b");
-                }
-            }).subscribeOn(Schedulers.io());
+                .create(new ObservableOnSubscribe<String>() {
+                    @Override
+                    public void subscribe(ObservableEmitter<String> e) throws Exception {
+                        Thread.sleep(2000);
+                        e.onNext("a");
+                        Thread.sleep(2000);
+                        e.onNext("b");
+                    }
+                }).subscribeOn(Schedulers.io());
         Observable<String> stringObservable2 = Observable
-            .create(new ObservableOnSubscribe<String>() {
-                @Override
-                public void subscribe(ObservableEmitter<String> e) throws Exception {
-                    Thread.sleep(3000);
-                    e.onNext("A");
-                    Thread.sleep(3000);
-                    e.onNext("B");
-                }
-            }).subscribeOn(Schedulers.io());
+                .create(new ObservableOnSubscribe<String>() {
+                    @Override
+                    public void subscribe(ObservableEmitter<String> e) throws Exception {
+                        Thread.sleep(3000);
+                        e.onNext("A");
+                        Thread.sleep(3000);
+                        e.onNext("B");
+                    }
+                }).subscribeOn(Schedulers.io());
 
         Observable.zip(integerObservable, stringObservable, integerObservable2, stringObservable2,
-            new Function4<Integer, String, Integer, String, String>() {
-                @Override
-                public String apply(Integer integer, String s, Integer integer2, String s2)
-                    throws Exception {
-                    return integer + integer2 + s + s2;
-                }
-            })
-            .subscribe(new Consumer<String>() {
-
-                @Override
-                public void accept(String s) throws Exception {
-                    KLog.e(s);
-                }
-            });
+                new Function4<Integer, String, Integer, String, String>() {
+                    @Override
+                    public String apply(Integer integer, String s, Integer integer2, String s2)
+                            throws Exception {
+                        return integer + integer2 + s + s2;
+                    }
+                })
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String s) throws Exception {
+                        KLog.e(s);
+                    }
+                });
     }
 
     // 6、sample操作符是定期扫描源Observable产生的结果，在指定的间隔周期内进行采样
@@ -552,28 +555,28 @@ public class RxJavaActivity extends BaseActivity {
     @OnClick(R.id.bt_sample)
     void bt_sample() {
         Observable.interval(1, TimeUnit.MILLISECONDS)
-            .sample(3, TimeUnit.SECONDS, Schedulers.newThread()).subscribe(
-            new Observer<Long>() {
-                @Override
-                public void onSubscribe(Disposable d) {
+                .sample(3, TimeUnit.SECONDS, Schedulers.newThread()).subscribe(
+                new Observer<Long>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
 
-                }
+                    }
 
-                @Override
-                public void onNext(Long aLong) {
-                    KLog.e(aLong);
-                }
+                    @Override
+                    public void onNext(Long aLong) {
+                        KLog.e(aLong);
+                    }
 
-                @Override
-                public void onError(Throwable e) {
+                    @Override
+                    public void onError(Throwable e) {
 
-                }
+                    }
 
-                @Override
-                public void onComplete() {
+                    @Override
+                    public void onComplete() {
 
-                }
-            });
+                    }
+                });
     }
 
     //四、Flowable是为了解决背压（backpressure）问题，而在Observable的基础上优化后的产物。
@@ -598,8 +601,6 @@ public class RxJavaActivity extends BaseActivity {
     //    BackpressureStrategy.MISSING:通过Create方法创建的Flowable没有指定背压策略，不会对通过OnNext发射的数据做缓存或丢弃处理，需要下游通过背压操作符（onBackpressureBuffer()/onBackpressureDrop()/onBackpressureLatest()）指定背压策略。
 
 
-
-
     @OnClick(R.id.bt_flowable)
     void bt_flowable() {
         Flowable.create(new FlowableOnSubscribe<Integer>() {
@@ -610,14 +611,14 @@ public class RxJavaActivity extends BaseActivity {
                 }
             }
         }, BackpressureStrategy.ERROR)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(new Consumer<Integer>() {
-                @Override
-                public void accept(Integer integer) throws Exception {
-                    KLog.e(integer);
-                }
-            });
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<Integer>() {
+                    @Override
+                    public void accept(Integer integer) throws Exception {
+                        KLog.e(integer);
+                    }
+                });
     }
 
 
